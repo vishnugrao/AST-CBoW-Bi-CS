@@ -24,3 +24,6 @@ Cross-Project Transfer Representation Learning for Vulnerable Function Discovery
 Guanjun Lin , Jun Zhang , Member, IEEE, Wei Luo, Lei Pan , Member, IEEE,
 Yang Xiang , Senior Member, IEEE, Olivier De Vel, and Paul Montague
 
+## Setup
+
+Initially we choose the 1st five projects as the training and Asterisk as the test.

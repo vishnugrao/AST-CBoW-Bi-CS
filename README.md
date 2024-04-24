@@ -6,7 +6,7 @@ Software Vulnerability Detection baseline on a Dataset Consisting of 6 Open Sour
 
 ## Projects included in the dataset:
 
-The owners manually labeled 457 vulnerable functions and collected 32 531 nonvulnerable functions from six open-source projects across 1000+ popular releases.The owners obtained the vulnerability data from the National Vulnerability Database (NVD) and the common vulnerability and exposures (CVE).
+The owners manually labeled 457 vulnerable functions and collected 32 531 nonvulnerable functions from six open-source projects across 1000+ popular releases.The owners obtained the vulnerability data from the National Vulnerability Database (NVD) and the common vulnerability and exposures (CVE).
 
     - LibTIFF
     - LibPNG

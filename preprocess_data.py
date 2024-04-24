@@ -10,7 +10,20 @@ def preprocess_files(directory_path):
         for file in files:
             path = os.path.join(root, file)
             with open(path, 'r', encoding='utf-8') as file_content:
-                content = file_content.read()
+                try:
+                    # First try reading with UTF-8
+                    with open(path, 'r', encoding='utf-8') as file_content:
+                        content = file_content.read()
+                except UnicodeDecodeError:
+                    try:
+                        # If UTF-8 fails, try reading with Latin-1
+                        with open(path, 'r', encoding='iso-8859-1') as file_content:
+                            content = file_content.read()
+                    except UnicodeDecodeError:
+                        # If it still fails, log an error and skip the file
+                        print(f"Error reading file {file}. Skipped.")
+                        continue
+
                 label = 1 if file.startswith('cve-') or file.startswith('CVE') else 0
                 data.append({'source_code': content, 'label': label})
 

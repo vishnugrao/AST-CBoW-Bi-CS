@@ -34,6 +34,9 @@ def preprocess_files(directory_path):
                     
                     label = 1 if 'cve-' in file.lower() or 'CVE-' in file.lower() else 0
 
+                    if content == "":
+                        continue
+
                     if project_name not in projects_data:
                         projects_data[project_name] = []
                     projects_data[project_name].append({'filename': file, 'source code': content, 'label': label})

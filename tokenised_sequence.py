@@ -8,23 +8,30 @@ from gensim.models import Word2Vec
 
 # NLTK data download for stopwords
 
-nltk.download('punkt')
+# nltk.download('punkt')
 
-def tokenize_txt(filepath):
-    with open(filepath, 'r', encoding='utf-8') as txtfile:
-        rawtext = txtfile.read()
+def tokenize_txt(directory_path):
 
-    splittext = rawtext.split('\n')
+    for filename in os.listdir(directory_path):
+        if filename.endswith('_data_output.txt'):
+            with open(filename, 'r', encoding='utf-8') as txtfile:
+                rawtext = txtfile.read()
 
-    # print(splittext)
+            splittext = rawtext.split('\n\n')
 
-    tokens = word_tokenize(splittext[0])
+            for cachetext in splittext:
+                tokens = word_tokenize(cachetext)
 
-    print(tokens)
+                if tokens:
+                    register_tokenisation(tokens, filename.replace('_output.txt', '_tokenised.txt'))
 
-    return tokens
+            print(f"Finished {filename}")
 
+def register_tokenisation(tokens, token_file):
+    with open(token_file, 'a') as out_dest:
+        out_dest.write(str(tokens) + str("\n\n"))
 
 if __name__ == '__main__':
-    filepath = './LibTIFF_data_output.txt'
-    tokenize_txt(filepath)
+    # filepath = './LibTIFF_data_output.txt'
+    directory_path = './'
+    tokenize_txt(directory_path)

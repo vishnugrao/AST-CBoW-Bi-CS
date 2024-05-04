@@ -41,8 +41,6 @@ def preprocess_files(directory_path):
                         projects_data[project_name] = []
                     projects_data[project_name].append({'filename': file, 'source code': content, 'label': label})
 
-    # print(projects_data)
-
     return projects_data
 
 def save_preprocessed_data(projects_data):
@@ -52,10 +50,8 @@ def save_preprocessed_data(projects_data):
             json.dump(data, f, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':
+
     directory_path = './OffData/TransferRepresentationLearning/Data/VulnerabilityData/6_projects_functions'
-    output_json = 'processed_data.json'
-    
-    # print(parent_directories)
 
     processed_data = preprocess_files(directory_path)
     save_preprocessed_data(processed_data)

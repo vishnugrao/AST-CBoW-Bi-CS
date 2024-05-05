@@ -23,7 +23,7 @@ def tokenize_txt(directory_path):
                 tokens = word_tokenize(cachetext)
 
                 if tokens:
-                    register_tokenisation(tokens, filename.replace('_output.txt', '_tokenised.txt'))
+                    register_tokenisation(tokens, f"./Tokens/{filename.replace('_output.txt', '_tokenised.txt')})
 
             print(f"Finished {filename}")
 
@@ -33,5 +33,5 @@ def register_tokenisation(tokens, token_file):
 
 if __name__ == '__main__':
     # filepath = './LibTIFF_data_output.txt'
-    directory_path = './'
+    directory_path = './Outputs/'
     tokenize_txt(directory_path)

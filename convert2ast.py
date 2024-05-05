@@ -30,7 +30,7 @@ def pipe_jsons(directory_path, temp_cfilepath):
                     output = get_AST(temp_cfilepath)
                     # print(output)
                     if output:
-                        serialise_AST(output, filename.replace('.json', '_output.txt'))
+                        serialise_AST(output, f"./Outputs/{filename.replace('.json', '_output.txt')}")
         
         print(f"Finished {filename}")
 

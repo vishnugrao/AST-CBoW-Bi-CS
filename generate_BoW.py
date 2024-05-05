@@ -39,5 +39,5 @@ def create_BoW_and_Word2Vec(directory_path):
             print(f"Finished processing {filename}")
 
 if __name__ == '__main__':
-    directory_path = "./"
+    directory_path = "./Tokens/"
     create_BoW_and_Word2Vec(directory_path)

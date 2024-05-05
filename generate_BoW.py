@@ -1,3 +1,5 @@
+# This file contains all the code to convert the ASTs into BoWs and Word2Vec embeddings
+
 import os
 import torch
 import numpy as np
@@ -28,7 +30,6 @@ def create_BoW_and_Word2Vec(directory_path):
             for idx, tokens in enumerate(splittokens):
                 words = tokens.split()
                 bows = vectorize(words, vocabulary).numpy()
-                # Optimize embedding generation by using numpy directly
                 embeddings = np.array([model.wv[word] for word in words if word in model.wv])
                 if embeddings.size > 0:
                     mean_embedding = torch.tensor(embeddings.mean(axis=0))

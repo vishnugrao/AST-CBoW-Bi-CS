@@ -32,7 +32,7 @@ def pipe_jsons(directory_path, temp_cfilepath):
                     if output:
                         serialise_AST(output, f"./Outputs/{filename.replace('.json', '_output.txt')}")
         
-        print(f"Finished {filename}")
+            print(f"Finished {filename}")
 
 def serialise_AST(output, output_file):
     # Write to file in append mode line by line

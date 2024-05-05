@@ -1,10 +1,16 @@
-}
-int gg_protobuf_valid_chknull(struct gg_session *gs, const char *msg_name,
-	int isNull)
+gboolean
+purple_certificate_register_scheme(PurpleCertificateScheme *scheme)
 {
-	if (isNull) {
-		gg_debug_session(gs, GG_DEBUG_ERROR, "// gg_protobuf: couldn't "
-			"unpack %s message\n", msg_name);
+	g_return_val_if_fail(scheme != NULL, FALSE);
+	/* Make sure no scheme is registered with the same name */
+	if (purple_certificate_find_scheme(scheme->name) != NULL) {
+		return FALSE;
 	}
-	return !isNull;
+	/* Okay, we're golden. Register it. */
+	cert_schemes = g_list_prepend(cert_schemes, scheme);
+	/* TODO: Signalling and such? */
+	purple_debug_info("certificate",
+			  "CertificateScheme %s registered\n",
+			  scheme->name);
+	return TRUE;
 }

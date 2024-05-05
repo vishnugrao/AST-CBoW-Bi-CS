@@ -23,7 +23,7 @@ def tokenize_txt(directory_path):
                 tokens = word_tokenize(cachetext)
 
                 if tokens:
-                    register_tokenisation(tokens, f"./Tokens/{filename.replace('_output.txt', '_tokenised.txt')})
+                    register_tokenisation(tokens, f"./Tokens/{filename.replace('_output.txt', '_tokenised.txt')}")
 
             print(f"Finished {filename}")
 
